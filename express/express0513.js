@@ -19,7 +19,7 @@ app.get("/deleteCookie", (req, res) => {
     }else {
         res.send("제거할 쿠키가 없습니다.")
     }
-})
+});
 
 app.get("/setUser", (req, res) => {
     res.cookie("user", {
@@ -33,6 +33,14 @@ app.get("/getUser", (req, res) => {
     res.send(req.cookies);
 });
 
+app.get("/setUser/:nameId", (req, res) => {
+    res.cookie("user", {
+        name: req.params.nameId,
+        age: 5
+    });
+    res.redirect("/getUser");
+});
+
 app.listen(8889, function() {
-    console.log("8889 포트입니다.")
+    console.log("8889 포트입니다.");
 });
