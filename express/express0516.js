@@ -25,10 +25,15 @@ app.get("/deleteSession", (req, res) => {
     }
 });
 
-// 1. /setUser/yoon => user name이 yoon으로 등록되게 라우터 만들기
+// 1. /setUser/yeon => user name이 yeon으로 등록되게 라우터 만들기
+app.route("/yeon", (req, res) => {
+
+});
 
 // 2. / => 루트 라우터일 때 세션이 있는지 안내하기
-
+app.get("/", (req, res) => {
+    
+});
 
 app.listen(8889, () => {
     console.log("8889 포트입니다.");
