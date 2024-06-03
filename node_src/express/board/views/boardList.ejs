@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <% for(let i=0l i<5; i++) { %>
-        제목 : <%= %>
-        내용 : <%= %>
+    <% for(let i=0l i<data.length; i++) { %>
+        제목 : <%= data[i].title %>
+        내용 : <%= data[i].content %>
     <% } %>
 </body>
 </html>
