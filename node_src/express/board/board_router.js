@@ -7,7 +7,7 @@ let numOfBoard = 1;
 
 // 게시글 API
 app.get('/', (req, res) => {
-    res.send("게시글 API 확인");
+    res.render('boardList', { "data": boardList });
 });
 
 app.get("/board", (req, res) => {
