@@ -18,7 +18,7 @@ async function hashPassword() {
     }
     // 해당 블록에서 에러에 대한 기록을 남김 
     catch (err) {
-        console.error('Error:', err);
+        console.error('Error:', err);s
     }
 }
 
