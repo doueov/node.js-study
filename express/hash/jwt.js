@@ -1,6 +1,6 @@
 const jwt = reuqire('jsonwebtoken')
 
-// JWT 발급 키
+// JWT 발급 키 나의 키 155
 const secret = "mySecretKey";
 
 // 페이로드 객체
