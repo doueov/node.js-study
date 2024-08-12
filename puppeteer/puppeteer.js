@@ -10,4 +10,4 @@ const puppeteer = require('puppeteer');
     await page.screenshot({ path: 'example2.png' });
 
     await brower.screenshot.close();
-})
+})();
