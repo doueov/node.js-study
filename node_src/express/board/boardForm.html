@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="post-form">
+        <div>
+          <label for="id">ID:</label>
+          <input type="text" id="id" name="id" required>
+        </div>
+        <div>
+          <label for="user_id">User ID:</label>
+          <input type="text" id="user_id" name="user_id" required>
+        </div>
+        <div>
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <div>
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required>
+        </div>
+        <div>
+          <label for="content">Content:</label>
+          <textarea id="content" name="content" rows="5" required></textarea>
+        </div>
+        <button type="submit" id="post-button">Submit</button>
+        <button type="button" id="put-button">Update</button>
+        <button type="button" id="delete-button">Delete</button>
+
+      </form>
+      <script>
+        const postForm = document.getElementById('post-form');
+        const putButton = document.getElementById('put-button');
+        const deleteButton = document.getElementById('delete-button');
+
+        postForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // 기본 폼 제출 동작 방지
+
+        const formData = {
+            id: document.getElementById('id').value,
+            user_id: document.getElementById('user_id').value,
+            date: document.getElementById('date').value,
+            title: document.getElementById('title').value,
+            content: document.getElementById('content').value
+        };
+
+        try {
+            const response = await fetch('http://localhost:8081/board', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('게시글 작성 성공!');
+            } else {
+                alert('게시글 작성 실패');
+            }
+        } catch (error) {
+            alert("게시글 작성 중 오류 발생");
+            console.error('게시글 작성 중 오류 발생:', error);
+        }
+        });
+
+
+        putButton.addEventListener('click', async () => {
+            const formData = {
+                id: document.getElementById('id').value,
+                user_id: document.getElementById('user_id').value,
+                date: document.getElementById('date').value,
+                title: document.getElementById('title').value,
+                content: document.getElementById('content').value
+            };
+
+            try {
+                const response = await fetch(`http://localhost:8081/board/${formData.id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                console.log('게시글 수정 성공!');
+                } else {
+                console.error('게시글 수정 실패:', response.status);
+                }
+            } catch (error) {
+                console.error('게시글 수정 중 오류 발생:', error);
+            }
+        });
+
+
+        
+        deleteButton.addEventListener('click', async (event) => {
+        event.preventDefault(); // 기본 폼 제출 동작 방지
+
+        const formData = {
+            id: document.getElementById('id').value,
+            user_id: document.getElementById('user_id').value,
+            date: document.getElementById('date').value,
+            title: document.getElementById('title').value,
+            content: document.getElementById('content').value
+        };
+
+        try {
+            const response = await fetch(`http://localhost:8081/board/${formData.id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                alert('게시글 삭제 성공!');
+            } else {
+                alert('게시글 삭제 실패');
+            }
+        } catch (error) {
+            alert("게시글 삭제 중 오류 발생");
+            console.error('게시글 삭제 중 오류 발생:', error);
+        }
+        });
+
+
+    </script>
+</body>
+</html>
