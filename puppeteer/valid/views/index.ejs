@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EJS 예제</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1>안녕하세요, <%= name %>님!</h1>
+    <p>나이: <%= ag e %>
+    </p>
+    <h2>보유 기술:</h2>
+    <ul>
+        <% skills.forEach(skill=> { %>
+            <li>
+                <%= skill %>
+            </li>
+            <% }) %>
+    </ul>
+</body>
+
+</html>

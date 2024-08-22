@@ -17,5 +17,5 @@ app.get("/login", (req, res) => {
 });
 
 app.listen(3000, () => {
-    console.log("Server os running");
-})
+    console.log("Server is running");
+});
