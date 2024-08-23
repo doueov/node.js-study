@@ -42,6 +42,16 @@ app.post("/login", [
 
         console.log("정보 : ", username, password);
 
+        // 로그인 로직
+        const user = users.find(user => user.username === username
+                                        && user.password === password);
+        if (user) {
+            res.send(`사용자명 : ${username}`);
+        } else {
+            // 로그인 실패
+            res.status(401).send("로그인 후 접근하세요.");
+        }
+
         res.send(username);
     });
 
