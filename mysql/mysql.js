@@ -9,7 +9,7 @@ const db_info = {
 
 module.exports = {
     init: function () {
-        return mysql.createConnection(db.info);
+        return mysql.createConnection(db_info);
     },
     connect: function (conn) {
         conn.connect(function (err) {
