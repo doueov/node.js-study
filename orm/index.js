@@ -5,7 +5,7 @@ const db = require("./models");
 
 const { User } = require("./models");
 
-app.get("/insert", (res, req) => {
+app.get("/insert", (req, res) => {
     User.create({
         firstName: "PARK",
         age: 19
@@ -14,7 +14,7 @@ app.get("/insert", (res, req) => {
             console.log(err);
         }
     })
-    res.setEncoding("insert");
+    res.send("insert");
 });
 
 db.sequelize.sync().then((req) => {
