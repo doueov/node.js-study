@@ -1,9 +1,9 @@
-modules.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define("User", {
         firstName: {
             type: DataTypes.STRING,
             allowNull: false,
-            validator:{
+            validator: {
                 notEmpty: true
             }
         },
